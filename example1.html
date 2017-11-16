@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地图</title>
+		<script src="js/echarts.js"></script>
+		<script src="js/bmap.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=E2EFWdTdx68qIWbOWvl8ZtQ4B743xXCS"></script>
+	</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="map-wrap" style="height:500px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var bmapChart = echarts.init(document.getElementById('map-wrap'));
+        // 指定图表的配置项和数据
+        var option = {
+            bemap:{
+            	center:[116.307698,40.056975],
+            	zoom:5,
+            	roam:true
+            }
+               
+        };
+         // 使用刚指定的配置项和数据显示图表。
+        bmapChart.setOption(option);
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>折线图</title>
+		<script src="js/echarts.js"></script>
+		<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+	</head>
+	<body>
+		<div id="container" style="height: 600px;width: 750px;"></div>
+		<script>
+			var myChart=echarts.init(document.getElementById('container'));
+			var option = {
+				title:{
+					text:'PM2.5折线图'
+				},
+				tooltip:{
+					trigger:'axis'//坐标轴触发提示项
+				},
+				legend:{
+					data:['PM2.5']//图例名称
+				},
+				toolbox:{
+					show:true,
+					feature:{
+						mark:{show:true},
+						dataView:{show:true,readyOnly:false},//展现当前图表所用数据
+						magicType:{show:true,type:['line','bar']},//动态类型切换
+						restore:{show:true},//配置项还原
+						saveAsImage:{show:true}					
+					}
+				},
+				calculable:true,//是否显示拖拽用的手柄
+				xAxis:{
+					type:'category',//离散型数据
+     //boundaryGap:false,
+					data:["冬","春","夏","秋","冬","春","夏","秋","冬","春","夏","秋","冬","春","夏"]
+				},
+				yAxis:{},
+				series:[{
+					name:'PM2.5',
+					type:'line',//折线图
+					data:[184,153,123,155,212,175,128,143,209,171,82,125,201,150,96],
+					itemStyle:{
+						normal:{
+							shadowBlur:200,
+							shadowOffsetX:0,
+							shadowOffsetY:0,
+							shadowColor:'rgba(0,0,0,0.5)'
+						},
+						emphasis:{
+							shadowBlur:200,
+							shadowColor:'rgba(0,0,0,0.5)'
+						}
+					}
+				}],
+   //改变全局背景色
+				backgroundColor:'#2c343c',
+				//全局文本设置
+				textStyle:{
+					color:'rgba(255,255,255,0.3)'
+				},
+				//设置标签的视觉引导线颜色
+			 labelLine:{
+			 	normal:{
+			 		lineStyle:{
+			 			color:'rgba(255,255,255,0.3)'
+			 		}
+			 	}
+			 }
+			};
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>

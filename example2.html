@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+		<title>柱状图</title>
+		<script src="js/echarts.js"></script>
+	</head>
+	<body>
+		<div id="main" style="height: 600px;"></div>
+		<script>
+			var myChart=echarts.init(document.getElementById('main'));
+			var option = {
+				title:{
+					text:'Echarts 入门示例'
+				},
+				tooltip:{},
+				legend:{
+					data:['销量']
+				},
+				xAxis:{
+					data:["衬衣","雪纺衫","高跟鞋"]
+				},
+				yAxis:{},
+				series:[{
+					name:'销量',
+					type:'bar',
+					data:[5,36,20],
+					itemStyle:{
+						normal:{
+							shadowBlur:200,
+							shadowOffsetX:0,
+							shadowOffsetY:0,
+							shadowColor:'rgba(0,0,0,0.5)'
+						},
+						emphasis:{
+							shadowBlur:200,
+							shadowColor:'rgba(0,0,0,0.5)'
+						}
+					}
+				}],
+   //改变全局背景色
+				backgroundColor:'#2c343c',
+				//全局文本设置
+				textStyle:{
+					color:'rgba(255,255,255,0.3)'
+				},
+				//设置标签的视觉引导线颜色
+			 labelLine:{
+			 	normal:{
+			 		lineStyle:{
+			 			color:'rgba(255,255,255,0.3)'
+			 		}
+			 	}
+			 }
+			};
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>
